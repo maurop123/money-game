@@ -69,7 +69,8 @@
   import csv from '../data/mint_transactions_april_2023.csv'
 
   // get headings
-  const headingsFilter = ['Original Description']
+  // omit headings by adding them to the array below
+  const headingsFilter = ['Original Description', 'Account Name', 'Transaction Type']
   const headings = Object.keys(
     csv[0]).filter(heading => !headingsFilter.includes(heading)
   )
