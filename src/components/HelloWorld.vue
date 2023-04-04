@@ -66,7 +66,7 @@
 
 <script setup>
   // import mint data
-  import csv from '../data/mint_transactions_april_2023.csv'
+  import csv from '../data/transactions.csv'
 
   // get headings
   // omit headings by adding them to the array below
