@@ -11,6 +11,13 @@
               </th>
             </tr>
           </thead>
+          <tbody>
+            <tr v-for="item in csv">
+              <td v-for="heading in headings">
+                {{ item[heading] }}
+              </td>
+            </tr>
+          </tbody>
         </v-table>
       </div>
 
@@ -58,11 +65,20 @@
 </template>
 
 <script setup>
-  //
-  const headings = [
-    'Date', 'What', 'Amount'
-  ]
+  // import mint data
+  import csv from '../data/mint_transactions_april_2023.csv'
 
-  import csv from '../data/mint_transactions_april_23.csv'
-  console.log('csv', csv)
+  // get headings
+  const headingsFilter = ['Original Description']
+  const headings = Object.keys(
+    csv[0]).filter(heading => !headingsFilter.includes(heading)
+  )
+  console.log('headings', headings)
+
+  // TODO not in use
+  // make a hash id for row keys
+  const keyElements = ['Amount', 'Date', 'Description']
+  /* csv.map(item => item.key = keyElements.map(element => item[element]).join('')) */
+  console.log('csv', csv[0])
+
 </script>
