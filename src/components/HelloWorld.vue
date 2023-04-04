@@ -1,15 +1,18 @@
 <template>
   <v-container class="fill-height">
     <v-responsive class="d-flex align-center text-center fill-height">
-      <v-img
-        contain
-        height="300"
-        src="@/assets/logo.svg"
-      />
 
-      <div class="text-body-2 font-weight-light mb-n1">Welcome to</div>
-
-      <h1 class="text-h2 font-weight-bold">Vuetify</h1>
+      <div>
+        <v-table>
+          <thead>
+            <tr>
+              <th class="text-left" v-for="heading in headings">
+                {{ heading }}
+              </th>
+            </tr>
+          </thead>
+        </v-table>
+      </div>
 
       <div class="py-14" />
 
@@ -29,26 +32,6 @@
             />
 
             Components
-          </v-btn>
-        </v-col>
-
-        <v-col cols="auto">
-          <v-btn
-            color="primary"
-            href="https://next.vuetifyjs.com/introduction/why-vuetify/#feature-guides"
-            min-width="228"
-            rel="noopener noreferrer"
-            size="x-large"
-            target="_blank"
-            variant="flat"
-          >
-            <v-icon
-              icon="mdi-speedometer"
-              size="large"
-              start
-            />
-
-            Get Started
           </v-btn>
         </v-col>
 
@@ -76,4 +59,10 @@
 
 <script setup>
   //
+  const headings = [
+    'Date', 'What', 'Amount'
+  ]
+
+  import csv from '../data/mint_transactions_april_23.csv'
+  console.log('csv', csv)
 </script>
